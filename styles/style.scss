@@ -1,0 +1,90 @@
+$primary: #292E3D;
+$primary-hover: #F9995D;
+$secondary: #5E6282;
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./../fonts/roboto/Roboto-Medium.ttf');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Poppin-regular';
+	src: url('./../fonts/poppin/Poppins-Regular.ttf');
+	font-style: normal;
+}
+
+html{
+  font-size: 62.5%;
+}
+body{
+  font-family: 'Poppin-regular';
+  line-height: 1;
+  font-weight: 400;
+}
+a{
+  text-decoration: none;
+}
+.container{
+	position: relative;
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0 112px;
+}
+
+//header
+.header{
+  padding: 27px 0 26px;
+  & .logo{
+		display: inline-block;
+    width: 280px;
+    height: 19.288px;
+    background: url('/images/logo_black-01.jpg') lightgray 50% / cover no-repeat;
+  }
+	& .nav{
+		float: right;
+		height: 19.288px;
+		line-height: 19.288px;
+		&_item{
+			display: inline-block;
+			margin-left: 5rem;
+			&_link{
+				font-size: 1.8rem;
+				color: $primary;
+				&:hover{
+					color: $primary-hover;
+				}
+			}
+		}
+	}
+}
+.hero{
+	padding: 52px 0 124px;
+	&_content{
+		display: inline-block;
+		max-width: 580px;
+		margin: 104px 0;
+	}
+	&_title{
+		margin-bottom: 4.4rem;
+		color: $primary;
+		font-family: 'Roboto';
+		font-size: 64px;
+		line-height: 75px;
+	}
+	&_desc{
+		color: $secondary;
+		font-size: 1.6rem;
+		line-height: 3rem;
+		font-weight: 500;
+		&-strong{
+			font-weight: 700;
+		}
+	}
+	&_image{
+		float: right;
+		width: 580px;
+		height: 462px;
+	}
+}
