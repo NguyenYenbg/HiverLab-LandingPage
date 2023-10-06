@@ -1,29 +1,48 @@
 $primary: #292e3d;
 $primary-hover: #f9995d;
 $secondary: #5e6282;
-$text-heading: #1e1d4c;
+$text: #1e1d4c;
 $neutral: #f6f8f7;
+$light: #dfd7f9;
 
 @font-face {
   font-family: 'Roboto';
   src: url('./../fonts/roboto/Roboto-Medium.ttf');
-  font-weight: 500;
   font-style: normal;
+  font-weight: 500;
 }
 
 @font-face {
-  font-family: 'Poppin-regular';
+  font-family: 'Poppin';
   src: url('./../fonts/poppin/Poppins-Regular.ttf');
   font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Poppin';
+  src: url('./../fonts/poppin/Poppins-Medium.ttf');
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Poppin';
+  src: url('./../fonts/poppin/Poppins-SemiBold.ttf');
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Poppin';
+  src: url('./../fonts/poppin/Poppins-Bold.ttf');
+  font-style: normal;
+  font-weight: 700;
 }
 
 html {
   font-size: 62.5%;
 }
 body {
-  font-family: 'Poppin-regular';
+  font-family: 'Poppin';
   line-height: normal;
-  font-weight: 400;
   font-size: 16px;
 }
 a {
@@ -34,6 +53,11 @@ a {
   width: 1440px;
   margin: 0 auto;
   padding: 0 112px;
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 .main-title {
   color: $primary;
@@ -53,7 +77,8 @@ a {
   z-index: 2;
   width: 50px;
   height: 50px;
-  background: url(/images/prev-btn.svg) no-repeat;
+  background: url(../images/prev-btn.svg) no-repeat;
+  cursor: pointer;
 }
 .button-next {
   position: absolute;
@@ -63,30 +88,40 @@ a {
   z-index: 2;
   width: 50px;
   height: 50px;
-  background: url(/images/next-btn.svg) no-repeat;
+  background: url(../images/next-btn.svg) no-repeat;
+  cursor: pointer;
 }
 
 //header
 .header {
   padding: 27px 0 26px;
-  & .logo {
+  .logo {
     display: inline-block;
+    vertical-align: middle;
     width: 280px;
-    height: 19.288px;
-    background: url('/images/logo_black-01.jpg') lightgray 50% / cover no-repeat;
+    height: 21px;
+    background: url('../images/logo_black-01.jpg') lightgray 50% / cover no-repeat;
   }
-  & .nav {
+  .nav {
     float: right;
-    height: 19.288px;
-    line-height: 19.288px;
+    &_list {
+      font-size: 0;
+    }
     &_item {
       display: inline-block;
-      margin-left: 5rem;
+      margin-left: 50px;
       &_link {
-        font-size: 1.8rem;
+        font-size: 18px;
         color: $primary;
         &:hover {
           color: $primary-hover;
+          font-weight: 600;
+        }
+      }
+      &.is_active {
+        .nav_item_link {
+          color: $primary-hover;
+          font-weight: 600;
         }
       }
     }
@@ -94,31 +129,37 @@ a {
 }
 .hero {
   padding: 52px 0 124px;
+  font-size: 0;
   &_content {
     display: inline-block;
-    max-width: 580px;
-    margin: 104px 0;
+    vertical-align: middle;
+    width: 592px;
+    height: 254px;
   }
   &_title {
-    margin-bottom: 4.4rem;
     color: $primary;
     font-family: 'Roboto';
     font-size: 64px;
+    font-weight: 500;
     line-height: 75px;
   }
   &_desc {
+    width: 479px;
+    margin-top: 46px;
     color: $secondary;
-    font-size: 1.6rem;
-    line-height: 3rem;
+    line-height: 30px;
     font-weight: 500;
-    &-strong {
+    font-size: 16px;
+    & .text-hightlight {
       font-weight: 700;
     }
   }
   &_image {
-    float: right;
+    display: inline-block;
+    vertical-align: middle;
     width: 580px;
     height: 462px;
+    margin-left: 44px;
   }
 }
 .brief {
@@ -128,29 +169,38 @@ a {
   &_list {
     margin: 44px 0;
     text-align: center;
+    font-size: 0;
   }
   &_item {
     display: inline-block;
-    max-height: 26rem;
-    width: 28.8rem;
-    padding: 64px 12px;
-    margin: 0 4rem 3.2rem 4rem;
+    position: relative;
+    height: 260px;
+    width: 288px;
+    // padding: 66px 12px;
+    margin: 0 40px 33px;
     border-radius: 36px;
+    &_box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
     &_img {
       width: 94px;
       height: 72px;
       margin-bottom: 28px;
     }
     &_text {
-      display: block;
-      height: 60px;
-      line-height: normal;
-      color: $text-heading;
+      display: -webkit-box;
+      // height: 60px;
+      color: $text;
       text-align: center;
       font-size: 20px;
       -webkit-line-clamp: 2;
       text-overflow: ellipsis;
       overflow: hidden;
+      -webkit-box-orient: vertical;
     }
     &:hover {
       background-color: #fff;
@@ -215,7 +265,7 @@ a {
     background-color: #fff;
     border-radius: 0 0 24px 24px;
     &_title {
-      color: $text-heading;
+      color: $text;
       font-size: 18px;
       font-weight: 700;
       line-height: 124.5%;
@@ -223,7 +273,7 @@ a {
     &_name {
       display: inline-block;
       margin-top: 4px;
-      color: $text-heading;
+      color: $text;
       font-size: 18px;
       line-height: 124.5%;
     }
@@ -249,13 +299,27 @@ a {
   }
   &_item {
     margin-top: 44px;
+    &:nth-of-type(2) {
+      .service_number {
+        background-color: #f15a2b;
+      }
+    }
+    &:nth-of-type(3) {
+      .service_number {
+        background-color: #006380;
+      }
+    }
+    &:nth-of-type(4) {
+      .service_number {
+        background-color: #f0bb1f;
+      }
+    }
   }
   &_number {
     display: inline-block;
     width: 34px;
     height: 34px;
     line-height: 34px;
-    padding: 0px 11px;
     border-radius: 8px;
     background-color: $primary-hover;
     color: #fff;
@@ -263,32 +327,69 @@ a {
     font-size: 20px;
     font-weight: 600;
     vertical-align: top;
-    &:nth-child(2) {
-      background-color: #f15a2b;
-    }
-    &:nth-child(3) {
-      background-color: #006380;
-    }
-    &:nth-child(4) {
-      background-color: #f0bb1f;
-    }
   }
   &_text {
     display: inline-block;
+    width: 569px;
     margin-left: 16px;
   }
   &_title {
-    color: $text-heading;
+    color: $text;
     font-size: 18px;
     font-weight: 600;
   }
   &_desc {
-    width: 569px;
+    display: -webkit-box;
+    height: 72px;
     margin-top: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
   &_img {
     display: inline-block;
     vertical-align: middle;
     margin-left: 120px;
+  }
+}
+.contact {
+  height: 442px;
+  padding: 44px 0;
+  border-radius: 210px 0px 0px;
+  background-color: rgba($light, 0.2);
+  &_desc {
+    text-align: center;
+    color: $text;
+    font-size: 18px;
+  }
+  &_address {
+    padding: 0 49px;
+    margin-top: 44px;
+  }
+  &_branch {
+    display: inline-block;
+    width: 488px;
+    padding: 10px;
+    &:nth-child(2) {
+      margin-left: 136px;
+    }
+    &_title {
+      color: $text;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    &_info {
+      margin-top: 12px;
+      color: $secondary;
+    }
+  }
+}
+.footer {
+  padding: 20px 112px;
+  background-color: $primary;
+  &_content {
+    text-align: center;
+    color: #fff;
   }
 }
