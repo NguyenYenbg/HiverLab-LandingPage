@@ -1,98 +1,5 @@
-$primary: #292e3d;
-$primary-hover: #f9995d;
-$secondary: #5e6282;
-$text: #1e1d4c;
-$neutral: #f6f8f7;
-$light: #dfd7f9;
+@import "./common.scss";
 
-@font-face {
-  font-family: 'Roboto';
-  src: url('./../fonts/roboto/Roboto-Medium.ttf');
-  font-style: normal;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'Poppin';
-  src: url('./../fonts/poppin/Poppins-Regular.ttf');
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'Poppin';
-  src: url('./../fonts/poppin/Poppins-Medium.ttf');
-  font-style: normal;
-  font-weight: 500;
-}
-@font-face {
-  font-family: 'Poppin';
-  src: url('./../fonts/poppin/Poppins-SemiBold.ttf');
-  font-style: normal;
-  font-weight: 600;
-}
-@font-face {
-  font-family: 'Poppin';
-  src: url('./../fonts/poppin/Poppins-Bold.ttf');
-  font-style: normal;
-  font-weight: 700;
-}
-
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: 'Poppin';
-  line-height: normal;
-  font-size: 16px;
-}
-a {
-  text-decoration: none;
-}
-.container {
-  position: relative;
-  width: 1440px;
-  margin: 0 auto;
-  padding: 0 112px;
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-}
-.main-title {
-  color: $primary;
-  font-size: 45px;
-  font-weight: 500;
-  line-height: 60px;
-  text-transform: capitalize;
-}
-.text-center {
-  text-align: center;
-}
-.button-prev {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 50px;
-  height: 50px;
-  background: url(../images/prev-btn.svg) no-repeat;
-  cursor: pointer;
-}
-.button-next {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(50%, -50%);
-  z-index: 2;
-  width: 50px;
-  height: 50px;
-  background: url(../images/next-btn.svg) no-repeat;
-  cursor: pointer;
-}
-
-//header
 .header {
   padding: 27px 0 26px;
   .logo {
@@ -100,7 +7,8 @@ a {
     vertical-align: middle;
     width: 280px;
     height: 21px;
-    background: url('../images/logo_black-01.jpg') lightgray 50% / cover no-repeat;
+    background: url("../images/logo_black-01.jpg") lightgray 50% / cover
+      no-repeat;
   }
   .nav {
     float: right;
@@ -138,7 +46,7 @@ a {
   }
   &_title {
     color: $primary;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-size: 64px;
     font-weight: 500;
     line-height: 75px;
@@ -163,11 +71,12 @@ a {
   }
 }
 .brief {
+  height: 783px;
   padding: 44px 0;
   background-color: #ecf7ff;
   border-radius: 0px 360px;
   &_list {
-    margin: 44px 0;
+    margin: 44px 0 auto;
     text-align: center;
     font-size: 0;
   }
@@ -176,9 +85,12 @@ a {
     position: relative;
     height: 260px;
     width: 288px;
-    // padding: 66px 12px;
     margin: 0 40px 33px;
     border-radius: 36px;
+    &:nth-child(5),
+    &:nth-child(4) {
+      margin-bottom: 0;
+    }
     &_box {
       position: absolute;
       top: 50%;
@@ -221,25 +133,30 @@ a {
   }
   &_content {
     padding: 43px 40px;
-    margin-left: 32px;
   }
   &_desc {
     margin-top: 44px;
     color: $secondary;
     font-size: 18px;
-    line-height: normal;
+    &:last-of-type {
+      margin-top: 22.5px;
+    }
   }
   &_btn {
-    padding: 12px 16px;
+    width: 212px;
+    height: 51px;
+    padding: 12px 15px;
     margin-top: 44px;
     border: 1px solid $primary;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0px 8px 37px 0px rgba(0, 0, 0, 0.12);
     text-transform: uppercase;
     font-size: 18px;
+    color: $text;
     &:hover {
       background-color: #d3d3d3;
+      border-color: #d3d3d3;
+      box-shadow: 0px 8px 37px 0px rgba(0, 0, 0, 0.12);
     }
   }
 }
@@ -259,11 +176,13 @@ a {
   &_content {
     position: absolute;
     left: 0;
-    bottom: -1px;
+    bottom: 0px;
     right: 0;
-    padding: 24px 20px;
+    padding: 18px;
+    height: 130px;
     background-color: #fff;
     border-radius: 0 0 24px 24px;
+    font-size: 0;
     &_title {
       color: $text;
       font-size: 18px;
@@ -292,6 +211,7 @@ a {
 }
 .service {
   padding: 100px 112px;
+  font-size: 0;
   &_content {
     display: inline-block;
     width: 624px;
@@ -330,25 +250,29 @@ a {
   }
   &_text {
     display: inline-block;
-    width: 569px;
+    width: 574px;
     margin-left: 16px;
   }
   &_title {
     color: $text;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
   }
   &_desc {
     display: -webkit-box;
     height: 72px;
+    line-height: 1.5;
     margin-top: 8px;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    font-size: 16px;
   }
   &_img {
     display: inline-block;
+    width: 438px;
+    height: 358px;
     vertical-align: middle;
     margin-left: 120px;
   }
@@ -359,13 +283,15 @@ a {
   border-radius: 210px 0px 0px;
   background-color: rgba($light, 0.2);
   &_desc {
+    margin-top: 12px;
     text-align: center;
     color: $text;
     font-size: 18px;
   }
   &_address {
-    padding: 0 49px;
+    padding: 0 52px;
     margin-top: 44px;
+    font-size: 0;
   }
   &_branch {
     display: inline-block;
@@ -382,6 +308,8 @@ a {
     &_info {
       margin-top: 12px;
       color: $secondary;
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 }

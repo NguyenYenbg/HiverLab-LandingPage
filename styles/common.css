@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("./../fonts/roboto/Roboto-Medium.ttf");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Poppin";
+  src: url("./../fonts/poppin/Poppins-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppin";
+  src: url("./../fonts/poppin/Poppins-Medium.ttf");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Poppin";
+  src: url("./../fonts/poppin/Poppins-SemiBold.ttf");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Poppin";
+  src: url("./../fonts/poppin/Poppins-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+}
+body,
+button {
+  font-family: "Poppin";
+  line-height: normal;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  position: relative;
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0 112px;
+}
+.container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.main-title {
+  color: #292e3d;
+  font-size: 45px;
+  font-weight: 500;
+  line-height: 60px;
+  text-transform: capitalize;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.button-prev {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  background: url(../images/prev-btn.svg) no-repeat;
+  cursor: pointer;
+}
+
+.button-next {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  background: url(../images/next-btn.svg) no-repeat;
+  cursor: pointer;
+}/*# sourceMappingURL=common.css.map */
