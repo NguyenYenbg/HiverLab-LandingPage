@@ -1,45 +1,50 @@
-$primary: #292e3d;
-$primary-hover: #f9995d;
-$secondary: #5e6282;
-$text: #1e1d4c;
-$neutral: #f6f8f7;
-$light: #dfd7f9;
+$dark: (
+  1: #292e3d,
+  2: #5e6282,
+);
+$orange: #f9995d;
+$blue-dark: #1e1d4c;
+$white: (
+  1: #fff,
+  2: #f6f8f7,
+  3: #dfd7f9,
+);
 
 @font-face {
-  font-family: "Roboto";
-  src: url("./../fonts/roboto/Roboto-Medium.ttf");
+  font-family: 'Roboto';
+  src: url('./../fonts/roboto/Roboto-Medium.ttf');
   font-style: normal;
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Poppin";
-  src: url("./../fonts/poppin/Poppins-Regular.ttf");
+  font-family: 'Poppin';
+  src: url('./../fonts/poppin/Poppins-Regular.ttf');
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
-  font-family: "Poppin";
-  src: url("./../fonts/poppin/Poppins-Medium.ttf");
+  font-family: 'Poppin';
+  src: url('./../fonts/poppin/Poppins-Medium.ttf');
   font-style: normal;
   font-weight: 500;
 }
 @font-face {
-  font-family: "Poppin";
-  src: url("./../fonts/poppin/Poppins-SemiBold.ttf");
+  font-family: 'Poppin';
+  src: url('./../fonts/poppin/Poppins-SemiBold.ttf');
   font-style: normal;
   font-weight: 600;
 }
 @font-face {
-  font-family: "Poppin";
-  src: url("./../fonts/poppin/Poppins-Bold.ttf");
+  font-family: 'Poppin';
+  src: url('./../fonts/poppin/Poppins-Bold.ttf');
   font-style: normal;
   font-weight: 700;
 }
 
 body,
 button {
-  font-family: "Poppin";
+  font-family: 'Poppin';
   line-height: normal;
   font-size: 16px;
 }
@@ -52,13 +57,13 @@ a {
   margin: 0 auto;
   padding: 0 112px;
   &::after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }
 }
 .main-title {
-  color: $primary;
+  color: map-get($dark, 1);
   font-size: 45px;
   font-weight: 500;
   line-height: 60px;
@@ -75,7 +80,7 @@ a {
   z-index: 2;
   width: 50px;
   height: 50px;
-  background: url(../images/prev-btn.svg) no-repeat;
+  background: url(../images/btn_prev.svg) no-repeat;
   cursor: pointer;
 }
 .button-next {
@@ -86,6 +91,6 @@ a {
   z-index: 2;
   width: 50px;
   height: 50px;
-  background: url(../images/next-btn.svg) no-repeat;
+  background: url(../images/btn_next.svg) no-repeat;
   cursor: pointer;
 }

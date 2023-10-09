@@ -1,18 +1,21 @@
-@import "./common.scss";
+@import './common.scss';
 
 .header {
   padding: 27px 0 26px;
   .logo {
     display: inline-block;
     vertical-align: middle;
-    width: 280px;
-    height: 21px;
-    background: url("../images/logo_black-01.jpg") lightgray 50% / cover
-      no-repeat;
+    &_link {
+      display: block;
+      width: 280px;
+      height: 21px;
+      background: url('../images/logo.jpg') no-repeat;
+    }
   }
   .nav {
     float: right;
     &_list {
+      position: relative;
       font-size: 0;
     }
     &_item {
@@ -20,15 +23,25 @@
       margin-left: 50px;
       &_link {
         font-size: 18px;
-        color: $primary;
+        color: map-get($dark, 1);
         &:hover {
-          color: $primary-hover;
+          color: $orange;
           font-weight: 600;
         }
       }
+      &_link::after {
+        display: block;
+        visibility: hidden;
+        overflow: hidden;
+        height: 0;
+        font-weight: 600;
+        content: attr(title);
+        user-select: none;
+        pointer-events: none;
+      }
       &.is_active {
         .nav_item_link {
-          color: $primary-hover;
+          color: $orange;
           font-weight: 600;
         }
       }
@@ -40,57 +53,53 @@
   font-size: 0;
   &_content {
     display: inline-block;
-    vertical-align: middle;
     width: 592px;
     height: 254px;
+    vertical-align: middle;
   }
   &_title {
-    color: $primary;
-    font-family: "Roboto";
+    font-family: 'Roboto';
     font-size: 64px;
     font-weight: 500;
+    color: map-get($dark, 1);
     line-height: 75px;
   }
   &_desc {
     width: 479px;
     margin-top: 46px;
-    color: $secondary;
-    line-height: 30px;
-    font-weight: 500;
     font-size: 16px;
+    font-weight: 500;
+    color: map-get($dark, 2);
+    line-height: 30px;
     & .text-hightlight {
       font-weight: 700;
     }
   }
   &_image {
     display: inline-block;
-    vertical-align: middle;
     width: 580px;
     height: 462px;
     margin-left: 44px;
+    vertical-align: middle;
   }
 }
-.brief {
+.company {
   height: 783px;
   padding: 44px 0;
   background-color: #ecf7ff;
   border-radius: 0px 360px;
   &_list {
-    margin: 44px 0 auto;
-    text-align: center;
+    margin: 12px 0 auto;
     font-size: 0;
+    text-align: center;
   }
   &_item {
     display: inline-block;
     position: relative;
-    height: 260px;
     width: 288px;
-    margin: 0 40px 33px;
+    height: 260px;
+    margin: 32px 40px 0;
     border-radius: 36px;
-    &:nth-child(5),
-    &:nth-child(4) {
-      margin-bottom: 0;
-    }
     &_box {
       position: absolute;
       top: 50%;
@@ -105,17 +114,17 @@
     }
     &_text {
       display: -webkit-box;
-      // height: 60px;
-      color: $text;
-      text-align: center;
+      max-height: 60px;
+      overflow: hidden;
       font-size: 20px;
+      color: $blue-dark;
+      text-align: center;
       -webkit-line-clamp: 2;
       text-overflow: ellipsis;
-      overflow: hidden;
       -webkit-box-orient: vertical;
     }
     &:hover {
-      background-color: #fff;
+      background-color: map-get($white, 1);
       box-shadow: 5px 10px 40px 0px rgba(0, 0, 0, 0.15);
     }
   }
@@ -136,72 +145,82 @@
   }
   &_desc {
     margin-top: 44px;
-    color: $secondary;
     font-size: 18px;
+    color: map-get($dark, 2);
     &:last-of-type {
       margin-top: 22.5px;
     }
   }
-  &_btn {
-    width: 212px;
-    height: 51px;
-    padding: 12px 15px;
-    margin-top: 44px;
-    border: 1px solid $primary;
-    background-color: #fff;
-    border-radius: 8px;
-    text-transform: uppercase;
-    font-size: 18px;
-    color: $text;
-    &:hover {
-      background-color: #d3d3d3;
-      border-color: #d3d3d3;
-      box-shadow: 0px 8px 37px 0px rgba(0, 0, 0, 0.12);
-    }
+}
+.btn_about {
+  width: 212px;
+  height: 51px;
+  padding: 12px 15px;
+  margin-top: 44px;
+  border: 1px solid map-get($dark, 1);
+  border-radius: 8px;
+  background-color: map-get($white, 1);
+  font-size: 18px;
+  color: $blue-dark;
+  box-shadow: 0px 8px 37px 0px rgba(0, 0, 0, 0.12);
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover {
+    border-color: #f9995d;
+    background-color: #f9995d;
+    color: map-get($white, 1);
   }
 }
 .work {
   padding: 100px 112px;
-  background-color: #f6f8f7;
+  background-color: map-get($white, 2);
   &_list {
     margin-top: 44px;
+  }
+  .swiper {
+    margin: -30px 0;
+    padding: 30px 0;
   }
   &_item {
     position: relative;
     width: 280px;
     height: 475px;
-    box-shadow: 0px 0px 37px 0px rgba(17, 24, 39, 0.05);
     border-radius: 24px;
+    box-shadow: 0px 0px 37px 0px rgba(17, 24, 39, 0.05);
+    cursor: pointer;
+    &_img {
+      border-radius: 24px 24px 26px 26px;
+    }
   }
   &_content {
     position: absolute;
     left: 0;
     bottom: 0px;
     right: 0;
-    padding: 18px;
     height: 130px;
-    background-color: #fff;
+    padding: 18px;
     border-radius: 0 0 24px 24px;
+    background-color: map-get($white, 1);
     font-size: 0;
     &_title {
-      color: $text;
       font-size: 18px;
       font-weight: 700;
+      color: $blue-dark;
       line-height: 124.5%;
     }
     &_name {
       display: inline-block;
       margin-top: 4px;
-      color: $text;
       font-size: 18px;
+      color: $blue-dark;
       line-height: 124.5%;
     }
     &_tag {
       display: inline-block;
       margin-top: 16px;
-      color: $secondary;
       font-size: 13px;
       font-weight: 500;
+      color: map-get($dark, 2);
       line-height: 124.5%;
     }
   }
@@ -239,14 +258,14 @@
     display: inline-block;
     width: 34px;
     height: 34px;
-    line-height: 34px;
     border-radius: 8px;
-    background-color: $primary-hover;
-    color: #fff;
-    text-align: center;
+    background-color: $orange;
     font-size: 20px;
     font-weight: 600;
+    color: map-get($white, 1);
+    text-align: center;
     vertical-align: top;
+    line-height: 34px;
   }
   &_text {
     display: inline-block;
@@ -254,39 +273,39 @@
     margin-left: 16px;
   }
   &_title {
-    color: $text;
+    color: $blue-dark;
     font-size: 18px;
     font-weight: 500;
   }
   &_desc {
     display: -webkit-box;
-    height: 72px;
-    line-height: 1.5;
-    margin-top: 8px;
     overflow: hidden;
+    height: 72px;
+    margin-top: 8px;
+    font-size: 16px;
     text-overflow: ellipsis;
+    line-height: 1.5;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    font-size: 16px;
   }
   &_img {
     display: inline-block;
     width: 438px;
     height: 358px;
-    vertical-align: middle;
     margin-left: 120px;
+    vertical-align: middle;
   }
 }
 .contact {
   height: 442px;
   padding: 44px 0;
   border-radius: 210px 0px 0px;
-  background-color: rgba($light, 0.2);
+  background-color: rgba(map-get($white, 3), 0.2);
   &_desc {
     margin-top: 12px;
-    text-align: center;
-    color: $text;
     font-size: 18px;
+    color: $blue-dark;
+    text-align: center;
   }
   &_address {
     padding: 0 52px;
@@ -301,23 +320,27 @@
       margin-left: 136px;
     }
     &_title {
-      color: $text;
       font-size: 18px;
       font-weight: 500;
+      color: $blue-dark;
     }
     &_info {
+      display: inline-block;
       margin-top: 12px;
-      color: $secondary;
       font-size: 16px;
+      color: map-get($dark, 2);
       line-height: 24px;
+    }
+    &_link {
+      color: map-get($dark, 2);
     }
   }
 }
 .footer {
   padding: 20px 112px;
-  background-color: $primary;
+  background-color: map-get($dark, 1);
   &_content {
+    color: map-get($white, 1);
     text-align: center;
-    color: #fff;
   }
 }
