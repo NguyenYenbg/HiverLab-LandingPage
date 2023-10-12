@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="./styles/reset.css">
 	<link rel="stylesheet" type="text/css" href="./styles/style.css">
 	<link rel="stylesheet" href="./styles/swiper-bundle.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -20,11 +21,11 @@
 					</a>
 				</h1>
 				<nav class="gnb" aria-label="menu">
-					<ul class="gnb_list">
-						<li class="gnb_item">
+					<ul class="gnb_list is_openMenu">
+						<li class="gnb_item is_active">
 							<a class="gnb_link" href="" title="Home">Home</a>
 						</li>
-						<li class="gnb_item is_active">
+						<li class="gnb_item">
 							<a class="gnb_link" href="#about" title="About Us">About Us</a>
 						</li>
 						<li class="gnb_item">
@@ -37,9 +38,11 @@
 							<a class="gnb_link" href="#contact" title="Contact Us">Contact Us</a>
 						</li>
 					</ul>
-					<button class="btn_menu"><span class="btn_menu_open btn_menu_open"></span></button>
-					<button class="btn_menu"><span class="btn_menu_open btn_menu_close"></span></button>
+					<button class="btn_menu js_toggle">
+						<span class="btn_toggle btn_menu_open"></span>
+					</button>
 				</nav>
+				<div class="js-overlay overlay"></div>
 			</div>
 		</header>
 

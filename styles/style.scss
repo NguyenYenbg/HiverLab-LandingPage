@@ -38,7 +38,17 @@
       position: relative;
       font-size: 0;
       @include respond-monitor($tablet) {
-        display: none;
+        position: fixed;
+        left: 100%;
+        top: 0;
+        bottom: 0;
+        z-index: 3;
+        width: 230px;
+        padding: 16px;
+        padding-top: 54px;
+        background-color: map-get($white, 1);
+        transform: translateX(0);
+        transition: transform 0.25s ease-in-out;
       }
     }
     .btn_menu {
@@ -48,14 +58,17 @@
         position: absolute;
         top: 0;
         right: 40px;
+        z-index: 3;
         &_open {
           display: block;
-          background: url('../images/mobile/ico_menu.svg');
           width: 24px;
           height: 24px;
+          background: url('../images/mobile/ico_menu.svg');
         }
         &_close {
-          display: none;
+          display: block;
+          width: 24px;
+          height: 24px;
           background: url('../images/mobile/ico_close.svg');
         }
       }
@@ -64,15 +77,26 @@
       display: inline-block;
       margin-left: 50px;
       &.is_active {
-        .nav_item_link {
+        .gnb_link {
           color: $orange;
           font-weight: 600;
+          border-bottom: 2px solid $orange;
         }
+      }
+      @include respond-monitor($tablet) {
+        display: inline-block;
+        width: 100%;
+        margin: 16px 0 0;
       }
     }
     &_link {
       font-size: 18px;
       color: map-get($dark, 1);
+      @include respond-monitor($tablet) {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+      }
       &:hover {
         color: $orange;
         font-weight: 600;
@@ -241,8 +265,10 @@
           height: 48px;
         }
         @include respond-monitor($mobile) {
+          display: inline-block;
           width: 46px;
           height: 36px;
+          vertical-align: middle;
         }
       }
       &_text {
@@ -262,13 +288,15 @@
         @include respond-monitor($mobile) {
           display: inline-block;
           margin: 0 0 0 20px;
+          vertical-align: middle;
         }
       }
       &:hover {
         background-color: map-get($white, 1);
         box-shadow: 5px 10px 40px 0px rgba(0, 0, 0, 0.15);
         @include respond-monitor($mobile) {
-          // background-color: transparent;
+          background-color: transparent;
+          box-shadow: none;
         }
       }
     }
@@ -281,9 +309,13 @@
     .container {
       display: flex;
       align-items: center;
-      gap: 32px;
       @include respond-monitor($tablet) {
         flex-direction: row-reverse;
+        justify-content: space-between;
+        padding: 0;
+      }
+      &::after {
+        content: none;
       }
     }
     &_img {
@@ -293,11 +325,22 @@
         width: 298px;
         height: 270px;
       }
+      @include respond-monitor($mobile) {
+        display: none;
+      }
     }
     &_content {
       padding: 43px 40px;
+      margin-left: 32px;
       @include respond-monitor($tablet) {
         padding: 43px 40px 42px;
+        margin-left: 0;
+      }
+      @include respond-monitor($mobile) {
+        padding: 8px 24px 9px;
+        .main-title {
+          text-align: center;
+        }
       }
     }
     &_desc {
@@ -308,6 +351,9 @@
         margin-top: 23px;
         @include respond-monitor($tablet) {
           margin-top: 19px;
+        }
+        @include respond-monitor($mobile) {
+          margin-top: 10px;
         }
       }
       @include respond-monitor($tablet) {
@@ -379,6 +425,9 @@
         }
       }
     }
+    @include respond-monitor($mobile) {
+      padding: 44px 0 56px;
+    }
     &_list {
       margin-top: 44px;
       @include respond-monitor($tablet) {
@@ -391,6 +440,9 @@
       @include respond-monitor($tablet) {
         padding: 30px 32px;
       }
+      @include respond-monitor($mobile) {
+        padding: 32px 24px;
+      }
     }
 
     &_item {
@@ -401,7 +453,10 @@
       box-shadow: 0px 0px 37px 0px rgba(17, 24, 39, 0.05);
       cursor: pointer;
       overflow: hidden;
-
+      @include respond-monitor($mobile) {
+        width: 260px;
+        height: 425px;
+      }
       &_img {
         width: 100%;
         height: 100%;
@@ -424,6 +479,9 @@
         font-weight: 700;
         color: $blue-dark;
         line-height: 124.5%;
+        @include respond-monitor($mobile) {
+          font-size: 14px;
+        }
       }
       &_name {
         display: inline-block;
@@ -431,6 +489,10 @@
         font-size: 18px;
         color: $blue-dark;
         line-height: 124.5%;
+        @include respond-monitor($mobile) {
+          margin-top: 8px;
+          font-size: 13px;
+        }
       }
       &_tag {
         display: inline-block;
@@ -439,6 +501,9 @@
         font-weight: 500;
         color: map-get($dark, 2);
         line-height: 124.5%;
+        @include respond-monitor($mobile) {
+          font-size: 13px;
+        }
       }
     }
     &_swiper {
@@ -464,7 +529,6 @@
     }
     &_item {
       margin-top: 44px;
-      padding-bottom: 4px;
       &:nth-of-type(2) {
         .service_number {
           background-color: #f15a2b;
@@ -481,7 +545,14 @@
         }
       }
       @include respond-monitor($tablet) {
+        padding-bottom: 4px;
         margin-top: 32px;
+      }
+      @include respond-monitor($mobile) {
+        padding-bottom: 9px;
+        &:nth-child(n + 2) {
+          margin-top: 20px;
+        }
       }
     }
     &_number {
@@ -498,6 +569,12 @@
       vertical-align: top;
       line-height: 34px;
       box-sizing: border-box;
+      @include respond-monitor($mobile) {
+        min-width: 28px;
+        height: 28px;
+        font-size: 14px;
+        line-height: 28px;
+      }
     }
     &_text {
       display: inline-block;
@@ -514,6 +591,9 @@
       @include respond-monitor($tablet) {
         font-size: 16px;
       }
+      @include respond-monitor($mobile) {
+        font-size: 15px;
+      }
     }
     &_desc {
       display: -webkit-box;
@@ -528,6 +608,10 @@
       @include respond-monitor($tablet) {
         height: 67px;
         font-size: 14px;
+      }
+      @include respond-monitor($mobile) {
+        height: 63px;
+        font-size: 13px;
       }
     }
     &_img {
@@ -556,6 +640,10 @@
       @include respond-monitor($tablet) {
         font-size: 16px;
       }
+      @include respond-monitor($mobile) {
+        padding-bottom: 18px;
+        font-size: 13px;
+      }
     }
     &_address {
       padding: 0 52px 32px;
@@ -563,6 +651,11 @@
       font-size: 0;
       @include respond-monitor($tablet) {
         text-align: center;
+        padding-bottom: 0;
+      }
+      @include respond-monitor($mobile) {
+        padding: 0;
+        margin-top: 32px;
       }
     }
     &_branch {
@@ -572,13 +665,17 @@
       @include respond-monitor($tablet) {
         text-align: start;
       }
+      @include respond-monitor($mobile) {
+        width: 100%;
+        padding: 0;
+      }
       &:nth-child(2n + 2) {
         margin-left: 136px;
         @include respond-monitor($tablet) {
           margin-left: 0;
         }
       }
-      &:nth-child(n + 1) {
+      &:nth-child(n + 2) {
         @include respond-monitor($tablet) {
           margin-top: 24px;
         }
@@ -587,6 +684,9 @@
         font-size: 18px;
         font-weight: 500;
         color: $blue-dark;
+        @include respond-monitor($mobile) {
+          font-size: 14px;
+        }
       }
       &_info {
         display: inline-block;
@@ -594,6 +694,11 @@
         font-size: 16px;
         color: map-get($dark, 2);
         line-height: 24px;
+        @include respond-monitor($tablet) {
+          margin-top: 8px;
+          font-size: 13px;
+          line-height: normal;
+        }
       }
       &_link {
         color: map-get($dark, 2);
@@ -602,12 +707,13 @@
   }
 }
 .footer {
-  padding: 20px 112px;
+  padding: 20px 0;
   background-color: map-get($dark, 1);
   &_content {
     color: map-get($white, 1);
     text-align: center;
+    @include respond-monitor($mobile) {
+      font-size: 13px;
+    }
   }
 }
-
-// @import './responsive.scss';
