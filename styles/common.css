@@ -39,9 +39,17 @@ a {
   text-decoration: none;
 }
 
+.show {
+  display: inline-block;
+}
+
+.hind {
+  display: none;
+}
+
 .container {
   position: relative;
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 112px;
 }
@@ -50,6 +58,16 @@ a {
   display: table;
   clear: both;
 }
+@media (max-width: 1440px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+}
 
 .main-title {
   font-size: 45px;
@@ -57,6 +75,18 @@ a {
   color: #292e3d;
   line-height: 60px;
   text-transform: capitalize;
+}
+@media (max-width: 1440px) {
+  .main-title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 20px;
+    line-height: 30px;
+  }
 }
 
 .text-center {
@@ -69,10 +99,20 @@ a {
   left: 0;
   z-index: 2;
   transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
-  background: url(../images/btn_prev.svg) no-repeat;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff url(../images/btn_prev.svg) center no-repeat;
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+}
+.button-prev:hover {
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.18);
+}
+@media (max-width: 1440px) {
+  .button-prev {
+    display: none;
+  }
 }
 
 .button-next {
@@ -81,8 +121,18 @@ a {
   right: 0;
   z-index: 2;
   transform: translate(50%, -50%);
-  width: 50px;
-  height: 50px;
-  background: url(../images/btn_next.svg) no-repeat;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff url(../images/btn_next.svg) center no-repeat;
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+}
+.button-next:hover {
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.18);
+}
+@media (max-width: 1440px) {
+  .button-next {
+    display: none;
+  }
 }/*# sourceMappingURL=common.css.map */

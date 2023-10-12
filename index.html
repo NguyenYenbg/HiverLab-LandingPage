@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 	<title>Landing Page</title>
 	<link rel="stylesheet" type="text/css" href="./styles/reset.css">
 	<link rel="stylesheet" type="text/css" href="./styles/style.css">
@@ -19,24 +19,26 @@
 						<span class="blind">Hivelab Vina</span>
 					</a>
 				</h1>
-				<nav class="nav" aria-label="menu">
-					<ul class="nav_list">
-						<li class="nav_item">
-							<a class="nav_item_link" href="" title="Home">Home</a>
+				<nav class="gnb" aria-label="menu">
+					<ul class="gnb_list">
+						<li class="gnb_item">
+							<a class="gnb_link" href="" title="Home">Home</a>
 						</li>
-						<li class="nav_item is_active">
-							<a class="nav_item_link" href="#about" title="About Us">About Us</a>
+						<li class="gnb_item is_active">
+							<a class="gnb_link" href="#about" title="About Us">About Us</a>
 						</li>
-						<li class="nav_item">
-							<a class="nav_item_link" href="#work" title="Work">Work</a>
+						<li class="gnb_item">
+							<a class="gnb_link" href="#work" title="Work">Work</a>
 						</li>
-						<li class="nav_item">
-							<a class="nav_item_link" href="#service" title="Services">Services</a>
+						<li class="gnb_item">
+							<a class="gnb_link" href="#service" title="Services">Services</a>
 						</li>
-						<li class="nav_item">
-							<a class="nav_item_link" href="#contact" title="Contact Us">Contact Us</a>
+						<li class="gnb_item">
+							<a class="gnb_link" href="#contact" title="Contact Us">Contact Us</a>
 						</li>
 					</ul>
+					<button class="btn_menu"><span class="btn_menu_open btn_menu_open"></span></button>
+					<button class="btn_menu"><span class="btn_menu_open btn_menu_close"></span></button>
 				</nav>
 			</div>
 		</header>
@@ -48,12 +50,14 @@
 						<h2 class="hero_title">Boarding to Greatness Together</h2>
 						<p class="hero_desc">
 							Our solutions focus on
-							<strong class="text-hightlight">Digital Transformational Innovation</strong>
+							<strong class="text-highlight">Digital Transformational Innovation</strong>
 							for a New Era and Generation.
 						</p>
 					</div>
 					<div class="hero_image">
-						<img src="./images/img_frame.png" alt="two person">
+						<img class="hero_image_pc" src="./images/img_frame.png" alt="two person">
+						<img class="hero_image_tl" src="./images/tablet/img_frame.png" alt="two person">
+						<!-- <img class="hero_image_mo" src="./images/mobile/img_frame.png" alt="two person"> -->
 					</div>
 				</div>
 			</section>
@@ -95,7 +99,7 @@
 				</div>
 			</section>
 			<section id="about" class="about">
-				<div class="container about_container">
+				<div class="container">
 					<img class="about_img" src="./images/img_about.png" alt="about us">
 					<div class="about_content">
 						<h3 class="main-title">about us</h3>
@@ -151,7 +155,7 @@
 									</div>
 								</li>
 								<li class="work_item swiper-slide">
-									<img src="./images/img_work1.png" alt="">
+									<img class="work_item_img" src="./images/img_work1.png" alt="CJ Group">
 									<div class="work_content">
 										<h4 class="work_content_title">CJ Group</h4>
 										<span class="work_content_name">CGV Screen X&4DX Project</span><br>
@@ -160,8 +164,9 @@
 								</li>
 							</ul>
 						</div>
-						<div class="button-prev"></div>
-						<div class="button-next"></div>
+						<button class="button-prev"></button>
+						<button class="button-next"></button>
+						<div class="swiper-pagination"></div>
 					</div>
 				</div>
 			</section>
@@ -237,8 +242,8 @@
 					<p class="contact_desc">
 						HIVELAB is always here for you. Ask anything, anytime.
 					</p>
-					<div class="contact_address">
-						<div class="contact_branch">
+					<ul class="contact_address">
+						<li class="contact_branch">
 							<h4 class="contact_branch_title">Head Office. Korea</h4>
 							<span class="contact_branch_info">
 								8F, U-Space 2-A, 670, Daewangpangyo-ro,Bundang-gu,
@@ -248,8 +253,8 @@
 									3001</a></span><br>
 							<span class="contact_branch_info"><a class="contact_branch_link" href="mailto:sales@hivelab.co.kr">Mail.
 									sales@hivelab.co.kr</a></span>
-						</div>
-						<div class="contact_branch">
+						</li>
+						<li class="contact_branch">
 							<h4 class="contact_branch_title">Branch Office. Hanoi</h4>
 							<span class="contact_branch_info">
 								2nd Floor, UDIC Complex N04 Hoang Dao Thuy Street, Trung Hoa,
@@ -260,8 +265,8 @@
 									3682</a></span><br>
 							<span class="contact_branch_info"><a class="contact_branch_link" href="mailto:sales@hivelab.com">Mail.
 									sales@hivelab.com</a></span>
-						</div>
-					</div>
+						</li>
+					</ul>
 				</div>
 			</section>
 		</main>

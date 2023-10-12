@@ -9,14 +9,19 @@ $white: (
   2: #f6f8f7,
   3: #dfd7f9,
 );
-
+$tablet: 1440px;
+$mobile: 768px;
+@mixin respond-monitor($mq) {
+  @media (max-width: $mq) {
+    @content;
+  }
+}
 @font-face {
   font-family: 'Roboto';
   src: url('./../fonts/roboto/Roboto-Medium.ttf');
   font-style: normal;
   font-weight: 500;
 }
-
 @font-face {
   font-family: 'Poppin';
   src: url('./../fonts/poppin/Poppins-Regular.ttf');
@@ -51,15 +56,27 @@ button {
 a {
   text-decoration: none;
 }
+.show {
+  display: inline-block;
+}
+.hind {
+  display: none;
+}
 .container {
   position: relative;
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 112px;
   &::after {
     content: '';
     display: table;
     clear: both;
+  }
+  @include respond-monitor($tablet) {
+    padding: 0 40px;
+  }
+  @include respond-monitor($mobile) {
+    padding: 0 24px;
   }
 }
 .main-title {
@@ -68,6 +85,14 @@ a {
   color: map-get($dark, 1);
   line-height: 60px;
   text-transform: capitalize;
+  @include respond-monitor($tablet) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  @include respond-monitor($mobile) {
+    font-size: 20px;
+    line-height: 30px;
+  }
 }
 .text-center {
   text-align: center;
@@ -78,10 +103,18 @@ a {
   left: 0;
   z-index: 2;
   transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
-  background: url(../images/btn_prev.svg) no-repeat;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: map-get($white, 1) url(../images/btn_prev.svg) center no-repeat;
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  &:hover {
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.18);
+  }
+  @include respond-monitor($tablet) {
+    display: none;
+  }
 }
 .button-next {
   position: absolute;
@@ -89,8 +122,16 @@ a {
   right: 0;
   z-index: 2;
   transform: translate(50%, -50%);
-  width: 50px;
-  height: 50px;
-  background: url(../images/btn_next.svg) no-repeat;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: map-get($white, 1) url(../images/btn_next.svg) center no-repeat;
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  &:hover {
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.18);
+  }
+  @include respond-monitor($tablet) {
+    display: none;
+  }
 }
