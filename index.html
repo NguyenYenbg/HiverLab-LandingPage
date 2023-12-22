@@ -1,290 +1,289 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
-	<title>Landing Page</title>
-	<link rel="stylesheet" type="text/css" href="./styles/reset.css">
-	<link rel="stylesheet" type="text/css" href="./styles/style.css">
-	<link rel="stylesheet" href="./styles/swiper-bundle.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <title>Landing</title>
+  <link rel="stylesheet" type="text/css" href="./styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css">
+  <link rel="stylesheet" type="text/css" href="./styles//swiper-bunder.min.css">
+  <script src="./scripts/jquery.min.js"></script>
 </head>
 
 <body>
-	<div class="wrap">
-		<header class="header">
-			<div class="container">
-				<h1 class="logo">
-					<a class="logo_link" href="#none">
-						<span class="blind">Hivelab Vina</span>
-					</a>
-				</h1>
-				<nav class="gnb" aria-label="menu">
-					<ul class="gnb_list is_openMenu">
-						<li class="gnb_item is_active">
-							<a class="gnb_link" href="" title="Home">Home</a>
-						</li>
-						<li class="gnb_item">
-							<a class="gnb_link" href="#about" title="About Us">About Us</a>
-						</li>
-						<li class="gnb_item">
-							<a class="gnb_link" href="#work" title="Work">Work</a>
-						</li>
-						<li class="gnb_item">
-							<a class="gnb_link" href="#service" title="Services">Services</a>
-						</li>
-						<li class="gnb_item">
-							<a class="gnb_link" href="#contact" title="Contact Us">Contact Us</a>
-						</li>
-					</ul>
-					<button class="btn_menu js_toggle">
-						<span class="btn_toggle btn_menu_open"></span>
-					</button>
-				</nav>
-				<div class="js-overlay overlay"></div>
-			</div>
-		</header>
+  <div class="wrap">
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">
+          <a class="logo_link" href="#">
+            <span class="blind">Hivelab Vina</span>
+          </a>
+        </h1>
+        <nav class="gnb" aria-label="menu">
+          <ul class="gnb_list is_openMenu">
+            <li class="gnb_item is_active">
+              <a class="gnb_link" href="#company" title="Company">Company</a>
+            </li>
+            <li class="gnb_item">
+              <a class="gnb_link" href="#about" title="About Us">About Us</a>
+            </li>
+            <li class="gnb_item">
+              <a class="gnb_link" href="#work" title="Work">Work</a>
+            </li>
+            <li class="gnb_item">
+              <a class="gnb_link" href="#service" title="Services">Services</a>
+            </li>
+            <li class="gnb_item">
+              <a class="gnb_link" href="#contact" title="Contact Us">Contact Us</a>
+            </li>
+          </ul>
+          <button class="btn_menu js_toggle">
+            <span class="btn_toggle btn_menu_open"></span>
+          </button>
+        </nav>
+        <div class="js-overlay overlay"></div>
+      </div>
+    </header>
 
-		<main class="content">
-			<section class="hero">
-				<div class="container">
-					<div class="hero_content">
-						<h2 class="hero_title">Boarding to Greatness Together</h2>
-						<p class="hero_desc">
-							Our solutions focus on
-							<strong class="text-highlight">Digital Transformational Innovation</strong>
-							for a New Era and Generation.
-						</p>
-					</div>
-					<div class="hero_image">
-						<img class="hero_image_pc" src="./images/img_frame.png" alt="two person">
-						<img class="hero_image_tl" src="./images/tablet/img_frame.png" alt="two person">
-						<!-- <img class="hero_image_mo" src="./images/mobile/img_frame.png" alt="two person"> -->
-					</div>
-				</div>
-			</section>
-			<section class="company">
-				<div class="container">
-					<h3 class="main-title text-center">company brief</h3>
-					<ul class="company_list">
-						<li class="company_item">
-							<div class="company_item_box">
-								<img class="company_item_img" src="./images/ico_brief1.png" alt="Hivelab Official">
-								<span class="company_item_text">Hivelab Official</span>
-							</div>
-						</li>
-						<li class="company_item">
-							<div class="company_item_box">
-								<img class="company_item_img" src="./images/ico_brief2.png" alt="Digital Marketing Group">
-								<span class="company_item_text">Digital Marketing Group</span>
-							</div>
-						</li>
-						<li class="company_item">
-							<div class="company_item_box">
-								<img class="company_item_img" src="./images/ico_brief3.png" alt="Digital Platform Group">
-								<span class="company_item_text">Digital Platform Group</span>
-							</div>
-						</li>
-						<li class="company_item">
-							<div class="company_item_box">
-								<img class="company_item_img" src="./images/ico_brief4.png" alt="Technical Development Group">
-								<span class="company_item_text">Technical Development Group</span>
-							</div>
-						</li>
-						<li class="company_item">
-							<div class="company_item_box">
-								<img class="company_item_img" src="./images/ico_brief5.png" alt="Game Design Group">
-								<span class="company_item_text">Game Design Group</span>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section id="about" class="about">
-				<div class="container">
-					<img class="about_img" src="./images/img_about.png" alt="about us">
-					<div class="about_content">
-						<h3 class="main-title">about us</h3>
-						<p class="about_desc">
-							HIVELAB VINA is a Platform-based Digital Communication Agency.
-						</p>
-						<p class="about_desc">
-							Through planning, designing, marketing, and developing, Hivelab
-							provides a richer experience in various areas.
-						</p>
-						<button class="btn_about" type="button">
-							ABOUT HIVELAB VINA
-						</button>
-					</div>
-				</div>
-			</section>
-			<section id="work" class="work">
-				<div class="container">
-					<h3 class="main-title text-center">work</h3>
-					<div class="work_swiper">
-						<div class="swiper js_swiper">
-							<ul class="work_list swiper-wrapper">
-								<li class="work_item swiper-slide">
-									<img class="work_item_img" src="./images/img_work1.png" alt="CJ Group">
-									<div class="work_content">
-										<h4 class="work_content_title">CJ Group</h4>
-										<span class="work_content_name">CGV Screen X&4DX Project</span><br>
-										<span class="work_content_tag">#UI/UX #Movie #Branding</span>
-									</div>
-								</li>
-								<li class="work_item swiper-slide">
-									<img class="work_item_img" src="./images/img_work2.png" alt="Genesis">
-									<div class="work_content">
-										<h4 class="work_content_title">Genesis</h4>
-										<span class="work_content_name">G70 ErciChun</span><br>
-										<span class="work_content_tag">#UI/UX #GUI #Platform</span>
-									</div>
-								</li>
-								<li class="work_item swiper-slide">
-									<img class="work_item_img" src="./images/img_work3.png" alt="Hanssem">
-									<div class="work_content">
-										<h4 class="work_content_title">Hanssem</h4>
-										<span class="work_content_name">Four Seasons Site</span><br>
-										<span class="work_content_tag">#UI/UX #Game #Promotion</span>
-									</div>
-								</li>
-								<li class="work_item swiper-slide">
-									<img class="work_item_img" src="./images/img_work4.png" alt="Riotgames">
-									<div class="work_content">
-										<h4 class="work_content_title">Riotgames</h4>
-										<span class="work_content_name">Riotgames Official Site</span><br>
-										<span class="work_content_tag">#UI/UX #Game #Platform</span>
-									</div>
-								</li>
-								<li class="work_item swiper-slide">
-									<img class="work_item_img" src="./images/img_work1.png" alt="CJ Group">
-									<div class="work_content">
-										<h4 class="work_content_title">CJ Group</h4>
-										<span class="work_content_name">CGV Screen X&4DX Project</span><br>
-										<span class="work_content_tag">#UI/UX #Movie #Branding</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<button class="button-prev"></button>
-						<button class="button-next"></button>
-						<div class="swiper-pagination"></div>
-					</div>
-				</div>
-			</section>
-			<section id="service" class="service">
-				<div class="container">
-					<div class="service_content">
-						<h3 class="main-title">Services</h3>
-						<ol>
-							<li class="service_item">
-								<span class="service_number">1</span>
-								<div class="service_text">
-									<h4 class="service_title">Digital Transformation Strategy</h4>
-									<p class="service_desc">
-										Nowadays, there's no escape from the Digital Transformation.
-										<br>
-										To expand and combine the fast-evolving digital
-										technologies, <br>
-										and to apply that digital technology to business is not an
-										easy job.
-									</p>
-								</div>
-							</li>
-							<li class="service_item">
-								<span class="service_number">2</span>
-								<div class="service_text">
-									<h4 class="service_title">User Experience Design</h4>
-									<p class="service_desc">
-										The Digital environment requires a much wider scope and role
-										of design and designers.Platforms we use need a good
-										combination of understanding users' needs and
-										reflectingtheir expectations, Platforms we use need a good
-										combination
-									</p>
-								</div>
-							</li>
-							<li class="service_item">
-								<span class="service_number">3</span>
-								<div class="service_text">
-									<h4 class="service_title">Digital Marketing</h4>
-									<p class="service_desc">
-										The fast-evolving digital environment and development of
-										digital marketing go hand in hand.HIVELAB never stops to
-										redefine the constantly evolving range and role of Digital
-										Marketing,and creats inno digital technology to business is
-										not an easy job.
-									</p>
-								</div>
-							</li>
-							<li class="service_item">
-								<span class="service_number">4</span>
-								<div class="service_text">
-									<h4 class="service_title">System development</h4>
-									<p class="service_desc">
-										With various experts in domestic/international service
-										development and R&D,HIVELAB focuses on providing attractive
-										User Experience to more users thanever by delivering a
-										winning strategy and advanced technology to business is not
-										an easy job.
-									</p>
-								</div>
-							</li>
+    <main class="content">
+      <section class="hero">
+        <div class="container">
+          <div class="hero_content">
+            <h2 class="hero_title">Boarding to Greatness Together</h2>
+            <p class="hero_desc">
+              Our solutions focus on
+              <strong class="text-highlight">Digital Transformational Innovation</strong>
+              for a New Era and Generation.
+            </p>
+          </div>
+          <div class="hero_image">
+            <img class="hero_image_pc" src="./images/img_frame.png" alt="two person">
+            <img class="hero_image_tl" src="./images/tablet/img_frame.png" alt="two person">
+          </div>
+        </div>
+      </section>
+      <section id="company" class="company">
+        <div class="container">
+          <h3 class="main-title text-center">company brief</h3>
+          <ul class="company_list">
+            <li class="company_item">
+              <div class="company_item_box">
+                <img class="company_item_img" src="./images/ico_brief1.png" alt="Hivelab Official">
+                <span class="company_item_text">Hivelab Official</span>
+              </div>
+            </li>
+            <li class="company_item">
+              <div class="company_item_box">
+                <img class="company_item_img" src="./images/ico_brief2.png" alt="Digital Marketing Group">
+                <span class="company_item_text">Digital Marketing Group</span>
+              </div>
+            </li>
+            <li class="company_item">
+              <div class="company_item_box">
+                <img class="company_item_img" src="./images/ico_brief3.png" alt="Digital Platform Group">
+                <span class="company_item_text">Digital Platform Group</span>
+              </div>
+            </li>
+            <li class="company_item">
+              <div class="company_item_box">
+                <img class="company_item_img" src="./images/ico_brief4.png" alt="Technical Development Group">
+                <span class="company_item_text">Technical Development Group</span>
+              </div>
+            </li>
+            <li class="company_item">
+              <div class="company_item_box">
+                <img class="company_item_img" src="./images/ico_brief5.png" alt="Game Design Group">
+                <span class="company_item_text">Game Design Group</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="about" class="about">
+        <div class="container">
+          <img class="about_img" src="./images/img_about.png" alt="about us">
+          <div class="about_content">
+            <h3 class="main-title">about us</h3>
+            <p class="about_desc">
+              HIVELAB VINA is a Platform-based Digital Communication Agency.
+            </p>
+            <p class="about_desc">
+              Through planning, designing, marketing, and developing, Hivelab
+              provides a richer experience in various areas.
+            </p>
+            <button class="btn_about" type="button">
 
-						</ol>
-					</div>
-					<div class="service_img">
-						<img src="./images/img_service.png" alt="service">
-					</div>
-				</div>
-			</section>
-			<section id="contact" class="contact">
-				<div class="container">
-					<h3 class="main-title text-center">Contact Us</h3>
-					<p class="contact_desc">
-						HIVELAB is always here for you. Ask anything, anytime.
-					</p>
-					<ul class="contact_address">
-						<li class="contact_branch">
-							<h4 class="contact_branch_title">Head Office. Korea</h4>
-							<span class="contact_branch_info">
-								8F, U-Space 2-A, 670, Daewangpangyo-ro,Bundang-gu,
-								Seongnam-si, Gyeonggi-do, Republic of Korea
-							</span>
-							<span class="contact_branch_info"><a class="contact_branch_link" href="tel:0316983001">Tel. 031 698
-									3001</a></span><br>
-							<span class="contact_branch_info"><a class="contact_branch_link" href="mailto:sales@hivelab.co.kr">Mail.
-									sales@hivelab.co.kr</a></span>
-						</li>
-						<li class="contact_branch">
-							<h4 class="contact_branch_title">Branch Office. Hanoi</h4>
-							<span class="contact_branch_info">
-								2nd Floor, UDIC Complex N04 Hoang Dao Thuy Street, Trung Hoa,
-								Cau Giay District, Hanoi
-							</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section id="work" class="work">
+        <div class="container">
+          <h3 class="main-title text-center">work</h3>
+          <div class="work_swiper">
+            <div class="swiper js_swiper">
+              <ul class="work_list swiper-wrapper">
+                <li class="work_item swiper-slide">
+                  <img class="work_item_img" src="./images/img_work1.png" alt="CJ Group">
+                  <div class="work_content">
+                    <h4 class="work_content_title">CJ Group</h4>
+                    <span class="work_content_name">CGV Screen X&4DX Project</span><br>
+                    <span class="work_content_tag">#UI/UX #Movie #Branding</span>
+                  </div>
+                </li>
+                <li class="work_item swiper-slide">
+                  <img class="work_item_img" src="./images/img_work2.png" alt="Genesis">
+                  <div class="work_content">
+                    <h4 class="work_content_title">Genesis</h4>
+                    <span class="work_content_name">G70 ErciChun</span><br>
+                    <span class="work_content_tag">#UI/UX #GUI #Platform</span>
+                  </div>
+                </li>
+                <li class="work_item swiper-slide">
+                  <img class="work_item_img" src="./images/img_work3.png" alt="Hanssem">
+                  <div class="work_content">
+                    <h4 class="work_content_title">Hanssem</h4>
+                    <span class="work_content_name">Four Seasons Site</span><br>
+                    <span class="work_content_tag">#UI/UX #Game #Promotion</span>
+                  </div>
+                </li>
+                <li class="work_item swiper-slide">
+                  <img class="work_item_img" src="./images/img_work4.png" alt="Riotgames">
+                  <div class="work_content">
+                    <h4 class="work_content_title">Riotgames</h4>
+                    <span class="work_content_name">Riotgames Official Site</span><br>
+                    <span class="work_content_tag">#UI/UX #Game #Platform</span>
+                  </div>
+                </li>
+                <li class="work_item swiper-slide">
+                  <img class="work_item_img" src="./images/img_work1.png" alt="CJ Group">
+                  <div class="work_content">
+                    <h4 class="work_content_title">CJ Group</h4>
+                    <span class="work_content_name">CGV Screen X&4DX Project</span><br>
+                    <span class="work_content_tag">#UI/UX #Movie #Branding</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <button class="button-prev"></button>
+            <button class="button-next"></button>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <section id="service" class="service">
+        <div class="container">
+          <div class="service_content">
+            <h3 class="main-title">Services</h3>
+            <ol>
+              <li class="service_item">
+                <span class="service_number">1</span>
+                <div class="service_text">
+                  <h4 class="service_title">Digital Transformation Strategy</h4>
+                  <p class="service_desc">
+                    Nowadays, there's no escape from the Digital Transformation.
+                    <br>
+                    To expand and combine the fast-evolving digital
+                    technologies, <br>
+                    and to apply that digital technology to business is not an
+                    easy job.
+                  </p>
+                </div>
+              </li>
+              <li class="service_item">
+                <span class="service_number">2</span>
+                <div class="service_text">
+                  <h4 class="service_title">User Experience Design</h4>
+                  <p class="service_desc">
+                    The Digital environment requires a much wider scope and role
+                    of design and designers.Platforms we use need a good
+                    combination of understanding users' needs and
+                    reflectingtheir expectations, Platforms we use need a good
+                    combination
+                  </p>
+                </div>
+              </li>
+              <li class="service_item">
+                <span class="service_number">3</span>
+                <div class="service_text">
+                  <h4 class="service_title">Digital Marketing</h4>
+                  <p class="service_desc">
+                    The fast-evolving digital environment and development of
+                    digital marketing go hand in hand.HIVELAB never stops to
+                    redefine the constantly evolving range and role of Digital
+                    Marketing,and creats inno digital technology to business is
+                    not an easy job.
+                  </p>
+                </div>
+              </li>
+              <li class="service_item">
+                <span class="service_number">4</span>
+                <div class="service_text">
+                  <h4 class="service_title">System development</h4>
+                  <p class="service_desc">
+                    With various experts in domestic/international service
+                    development and R&D,HIVELAB focuses on providing attractive
+                    User Experience to more users thanever by delivering a
+                    winning strategy and advanced technology to business is not
+                    an easy job.
+                  </p>
+                </div>
+              </li>
 
-							<span class="contact_branch_info"><a class="contact_branch_link" href="tel:+02473003682">Tel. +024 7300
-									3682</a></span><br>
-							<span class="contact_branch_info"><a class="contact_branch_link" href="mailto:sales@hivelab.com">Mail.
-									sales@hivelab.com</a></span>
-						</li>
-					</ul>
-				</div>
-			</section>
-		</main>
+            </ol>
+          </div>
+          <div class="service_img">
+            <img src="./images/img_service.png" alt="service">
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="contact">
+        <div class="container">
+          <h3 class="main-title text-center">Contact Us</h3>
+          <p class="contact_desc">
+            HIVELAB is always here for you. Ask anything, anytime.
+          </p>
+          <ul class="contact_address">
+            <li class="contact_branch">
+              <h4 class="contact_branch_title">Head Office. Korea</h4>
+              <span class="contact_branch_info">
+                8F, U-Space 2-A, 670, Daewangpangyo-ro,Bundang-gu,
+                Seongnam-si, Gyeonggi-do, Republic of Korea
+              </span>
+              <span class="contact_branch_info"><a class="contact_branch_link" href="tel:0316983001">Tel. 031 698
+                  3001</a></span><br>
+              <span class="contact_branch_info"><a class="contact_branch_link" href="mailto:sales@hivelab.co.kr">Mail.
+                  sales@hivelab.co.kr</a></span>
+            </li>
+            <li class="contact_branch">
+              <h4 class="contact_branch_title">Branch Office. Hanoi</h4>
+              <span class="contact_branch_info">
+                2nd Floor, UDIC Complex N04 Hoang Dao Thuy Street, Trung Hoa,
+                Cau Giay District, Hanoi
+              </span>
 
-		<footer class="footer">
-			<div class="container">
-				<p class="footer_content">
-					Copyright &copy; 2023 Hivelab Vina. All Rights Reserved
-				</p>
-			</div>
-		</footer>
-	</div>
+              <span class="contact_branch_info"><a class="contact_branch_link" href="tel:+02473003682">Tel. +024 7300
+                  3682</a></span><br>
+              <span class="contact_branch_info"><a class="contact_branch_link" href="mailto:sales@hivelab.com">Mail.
+                  sales@hivelab.com</a></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
 
-	<script src="./js/swiper-bundle.min.js"></script>
-	<script src="./js/script.js"></script>
+    <footer class="footer">
+      <div class="container">
+        <p class="footer_content">
+          Copyright &copy; 2023 Hivelab Vina. All Rights Reserved
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./scripts/swiper-bunder.min.js"></script>
+  <script src="./scripts/script.js"></script>
 </body>
 
 </html>

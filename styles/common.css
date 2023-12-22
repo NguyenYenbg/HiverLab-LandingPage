@@ -105,6 +105,7 @@ a {
   background: #fff url(../images/btn_prev.svg) center no-repeat;
   box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  opacity: 0;
 }
 .button-prev:hover {
   box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.18);
@@ -127,6 +128,7 @@ a {
   background: #fff url(../images/btn_next.svg) center no-repeat;
   box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  opacity: 0;
 }
 .button-next:hover {
   box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.18);
@@ -149,4 +151,52 @@ a {
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
+}
+
+@keyframes rightToLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes goToTop {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes hoverZoom {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes hoverText {
+  0% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
 }/*# sourceMappingURL=common.css.map */

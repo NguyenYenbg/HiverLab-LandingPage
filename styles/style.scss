@@ -1,5 +1,4 @@
 @import './common.scss';
-
 .header {
   position: fixed;
   top: 0;
@@ -76,16 +75,28 @@
     &_item {
       display: inline-block;
       margin-left: 50px;
+      &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $orange;
+        transition: width 0.3s ease-in-out;
+      }
+      &:hover::after,
+      &.is_active::after {
+        width: 100%;
+      }
+      &:hover,
       &.is_active {
         .gnb_link {
           color: $orange;
           font-weight: 600;
-          border-bottom: 2px solid $orange;
+          border-bottom: 0 solid $orange;
         }
       }
       @include respond-monitor($tablet) {
-        display: inline-block;
-        width: 100%;
+        display: table;
         margin: 16px 0 0;
       }
     }
@@ -96,10 +107,6 @@
         font-size: 16px;
         line-height: 24px;
         font-weight: 500;
-      }
-      &:hover {
-        color: $orange;
-        font-weight: 600;
       }
     }
     &_link::after {
@@ -122,587 +129,739 @@
   @include respond-monitor($mobile) {
     margin-top: 52px;
   }
-  .hero {
-    padding: 52px 0 124px;
-    font-size: 0;
+}
+.hero {
+  padding: 52px 0 124px;
+  font-size: 0;
+  @include respond-monitor($tablet) {
+    padding: 52px 0 60px;
+  }
+  @include respond-monitor($mobile) {
+    padding: 32px 0 44px;
+    background: url('../images/mobile/img_frame.png') no-repeat right bottom;
+  }
+  & .container {
+    text-align: center;
+  }
+  &_content {
+    display: inline-block;
+    overflow: hidden;
+    width: 592px;
+    height: 254px;
+    vertical-align: middle;
+    text-align: start;
     @include respond-monitor($tablet) {
-      padding: 52px 0 60px;
+      width: 356px;
+      height: 212px;
     }
     @include respond-monitor($mobile) {
-      padding: 32px 0 44px;
-      background: url('../images/mobile/img_frame.png') no-repeat right bottom;
+      width: 100%;
+      height: 152px;
     }
-    & .container {
-      text-align: center;
+  }
+  &_title {
+    font-family: 'Roboto';
+    font-size: 64px;
+    font-weight: 500;
+    color: map-get($dark, 1);
+    line-height: 75px;
+    animation: goToTop 0.75s ease;
+    @include respond-monitor($tablet) {
+      font-size: 40px;
+      line-height: 45px;
     }
-    &_content {
-      display: inline-block;
-      width: 592px;
-      height: 254px;
-      vertical-align: middle;
-      text-align: start;
+    @include respond-monitor($mobile) {
+      font-size: 24px;
+      line-height: 34px;
+    }
+  }
+  &_desc {
+    width: 479px;
+    margin-top: 46px;
+    font-size: 16px;
+    font-weight: 500;
+    color: map-get($dark, 2);
+    line-height: 30px;
+    animation: goToTop 0.75s ease-in-out;
+    & .text-highlight {
+      font-weight: 700;
+    }
+    @include respond-monitor($tablet) {
+      width: 100%;
+      margin-top: 32px;
+    }
+    @include respond-monitor($mobile) {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+  &_image {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    animation: rightToLeft 0.75s ease-in-out;
+    &_pc {
+      width: 580px;
+      height: 462px;
+      margin-left: 44px;
       @include respond-monitor($tablet) {
-        width: 356px;
-        height: 212px;
-      }
-      @include respond-monitor($mobile) {
-        width: 100%;
-        height: 152px;
-      }
-    }
-    &_title {
-      font-family: 'Roboto';
-      font-size: 64px;
-      font-weight: 500;
-      color: map-get($dark, 1);
-      line-height: 75px;
-      @include respond-monitor($tablet) {
-        font-size: 40px;
-        line-height: 45px;
-      }
-      @include respond-monitor($mobile) {
-        font-size: 24px;
-        line-height: 34px;
-      }
-    }
-    &_desc {
-      width: 479px;
-      margin-top: 46px;
-      font-size: 16px;
-      font-weight: 500;
-      color: map-get($dark, 2);
-      line-height: 30px;
-      & .text-highlight {
-        font-weight: 700;
-      }
-      @include respond-monitor($tablet) {
-        width: 100%;
-        margin-top: 32px;
-      }
-      @include respond-monitor($mobile) {
-        margin-top: 12px;
-        font-size: 14px;
-        line-height: 24px;
-      }
-    }
-    &_image {
-      display: inline-block;
-      vertical-align: middle;
-      &_pc {
-        width: 580px;
-        height: 462px;
-        margin-left: 44px;
-        @include respond-monitor($tablet) {
-          display: none;
-        }
-      }
-      &_tl {
         display: none;
-        width: 290px;
-        height: 231px;
-        margin-left: 42px;
-        @include respond-monitor($tablet) {
-          display: block;
-        }
-        @include respond-monitor($mobile) {
-          display: none;
-        }
+      }
+    }
+    &_tl {
+      display: none;
+      width: 290px;
+      height: 231px;
+      margin-left: 42px;
+      @include respond-monitor($tablet) {
+        display: block;
+      }
+      @include respond-monitor($mobile) {
+        display: none;
       }
     }
   }
-  .company {
-    padding: 44px 0;
-    background-color: #ecf7ff;
-    border-radius: 0px 360px;
+}
+.company {
+  padding: 100px 0 44px;
+  background-color: #ecf7ff;
+  border-radius: 0px 360px;
+  overflow: hidden;
+  &.show_animate {
+    .company_item {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: 1s linear;
+    }
+  }
+  @include respond-monitor($tablet) {
+    border-radius: 0;
+  }
+  &_list {
+    margin: 12px 0 39px;
+    font-size: 0;
+    text-align: center;
     @include respond-monitor($tablet) {
-      border-radius: 0;
+      margin: 0;
     }
-    &_list {
-      margin: 12px 0 39px;
-      font-size: 0;
-      text-align: center;
-      @include respond-monitor($tablet) {
-        margin: 0;
-      }
-      @include respond-monitor($mobile) {
-        margin-top: 20px;
-        text-align: start;
-      }
+    @include respond-monitor($mobile) {
+      margin-top: 20px;
+      text-align: start;
     }
-    &_item {
+  }
+  &_item {
+    display: inline-block;
+    width: 288px;
+    height: 260px;
+    margin: 32px 40px 0;
+    border-radius: 36px;
+    transform: translateY(100%);
+    opacity: 0;
+    cursor: pointer;
+    &::after {
+      content: '';
       display: inline-block;
-      position: relative;
-      width: 288px;
-      height: 260px;
-      margin: 32px 40px 0;
-      border-radius: 36px;
-      &::after {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-      }
-      @include respond-monitor($tablet) {
-        width: 220px;
-        height: 230px;
-        margin: 32px 14px 0;
-      }
-      @include respond-monitor($mobile) {
-        width: 100%;
-        height: 60px;
-        padding: 12px 0px;
-        margin: 12px 0 0;
-      }
-      &_box {
-        display: inline-block;
-        vertical-align: middle;
-      }
-      &_img {
-        width: 94px;
-        height: 72px;
-        @include respond-monitor($tablet) {
-          width: 62px;
-          height: 48px;
-        }
-        @include respond-monitor($mobile) {
-          display: inline-block;
-          width: 46px;
-          height: 36px;
-          vertical-align: middle;
-        }
-      }
-      &_text {
-        display: -webkit-box;
-        overflow: hidden;
-        max-height: 60px;
-        margin-top: 28px;
-        font-size: 20px;
-        color: $blue-dark;
-        text-align: center;
-        -webkit-line-clamp: 2;
-        text-overflow: ellipsis;
-        -webkit-box-orient: vertical;
-        @include respond-monitor($tablet) {
-          font-size: 14px;
-        }
-        @include respond-monitor($mobile) {
-          display: inline-block;
-          margin: 0 0 0 20px;
-          vertical-align: middle;
-        }
-      }
-      &:hover {
-        background-color: map-get($white, 1);
-        box-shadow: 5px 10px 40px 0px rgba(0, 0, 0, 0.15);
-        @include respond-monitor($mobile) {
-          background-color: transparent;
-          box-shadow: none;
-        }
-      }
+      height: 100%;
+      vertical-align: middle;
     }
-  }
-  .about {
-    padding: 100px 0;
     @include respond-monitor($tablet) {
-      padding: 44px 0;
+      width: 220px;
+      height: 230px;
+      margin: 32px 14px 0;
     }
-    .container {
-      display: flex;
-      align-items: center;
-      @include respond-monitor($tablet) {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        padding: 0;
-      }
-      &::after {
-        content: none;
-      }
+    @include respond-monitor($mobile) {
+      width: 100%;
+      height: 60px;
+      padding: 12px 0px;
+      margin: 12px 0 0;
+    }
+    &_box {
+      display: inline-block;
+      vertical-align: middle;
     }
     &_img {
-      width: 696px;
-      height: 514px;
+      width: 94px;
+      height: 72px;
       @include respond-monitor($tablet) {
-        width: 298px;
-        height: 270px;
+        width: 62px;
+        height: 48px;
       }
       @include respond-monitor($mobile) {
-        display: none;
+        display: inline-block;
+        width: 46px;
+        height: 36px;
+        vertical-align: middle;
       }
     }
-    &_content {
-      padding: 43px 40px;
-      margin-left: 32px;
+    &_text {
+      display: -webkit-box;
+      overflow: hidden;
+      max-height: 60px;
+      margin-top: 28px;
+      font-size: 20px;
+      color: $blue-dark;
+      text-align: center;
+      -webkit-line-clamp: 2;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
       @include respond-monitor($tablet) {
-        padding: 43px 40px 42px;
-        margin-left: 0;
-      }
-      @include respond-monitor($mobile) {
-        padding: 8px 24px 9px;
-        .main-title {
-          text-align: center;
-        }
-      }
-    }
-    &_desc {
-      margin-top: 44px;
-      font-size: 18px;
-      color: map-get($dark, 2);
-      &:last-of-type {
-        margin-top: 23px;
-        @include respond-monitor($tablet) {
-          margin-top: 19px;
-        }
-        @include respond-monitor($mobile) {
-          margin-top: 10px;
-        }
-      }
-      @include respond-monitor($tablet) {
-        margin-top: 32px;
         font-size: 14px;
       }
+      @include respond-monitor($mobile) {
+        display: inline-block;
+        margin: 0 0 0 20px;
+        vertical-align: middle;
+      }
     }
-    .btn_about {
-      width: 212px;
-      height: 51px;
-      padding: 12px 15px;
-      margin-top: 44px;
-      border: 1px solid map-get($dark, 1);
+    &:hover {
+      background-color: map-get($white, 1);
+      box-shadow: 5px 10px 40px 0px rgba(0, 0, 0, 0.15);
+      animation: hoverZoom 0.5s linear;
+      .company_item_text {
+        color: transparent;
+        background-image: linear-gradient(
+          to right,
+          #f00,
+          #e6d600,
+          #00a329,
+          #007a7a,
+          #9e9400,
+          #00268f
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        animation: hoverText 10s linear infinite;
+        background-size: 1000%;
+      }
+      @include respond-monitor($mobile) {
+        background-color: transparent;
+        box-shadow: none;
+      }
+    }
+  }
+}
+.about {
+  padding: 100px 0;
+  &.show_animate .about_img {
+    transition: 1s ease-in-out;
+    transform: scale(1, 1);
+  }
+  &.show_animate .about_content {
+    transition: 1s ease-in-out;
+    transition-delay: 0.5s;
+    transform: translateX(0);
+    & .btn_about {
+      transition: 1s ease-in-out;
+      transition-delay: 1s;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @include respond-monitor($tablet) {
+    padding: 44px 0;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    @include respond-monitor($tablet) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      padding: 0;
+    }
+    &::after {
+      content: none;
+    }
+  }
+  &_img {
+    width: 696px;
+    height: 514px;
+    transform: scale(0.3, 0.3);
+    @include respond-monitor($tablet) {
+      width: 298px;
+      height: 270px;
+    }
+    @include respond-monitor($mobile) {
+      display: none;
+    }
+  }
+  &_content {
+    overflow: hidden;
+    padding: 43px 40px;
+    margin-left: 32px;
+    transform: translateX(calc(100% + 112px));
+    @include respond-monitor($tablet) {
+      padding: 43px 40px 42px;
+      margin-left: 0;
+    }
+    @include respond-monitor($mobile) {
+      padding: 8px 24px 9px;
+      .main-title {
+        text-align: center;
+      }
+    }
+  }
+  &_desc {
+    margin-top: 44px;
+    font-size: 18px;
+    color: map-get($dark, 2);
+    &:last-of-type {
+      margin-top: 23px;
+      @include respond-monitor($tablet) {
+        margin-top: 19px;
+      }
+      @include respond-monitor($mobile) {
+        margin-top: 10px;
+      }
+    }
+    @include respond-monitor($tablet) {
+      margin-top: 32px;
+      font-size: 14px;
+    }
+  }
+  .btn_about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 212px;
+    height: 51px;
+    overflow: hidden;
+    margin-top: 44px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 37px 0px rgba(0, 0, 0, 0.12);
+    transform: translateX(calc(200%));
+    opacity: 0;
+    cursor: pointer;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 500%;
+      background-image: conic-gradient(red, orange, blue, yellow, green, indigo, violet);
+      position: absolute;
+      animation: rotate 0.5s linear infinite;
+    }
+    &::after {
+      content: 'ABOUT HIVELAB VINA';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 210px;
+      height: 49px;
       border-radius: 8px;
       background-color: map-get($white, 1);
       font-size: 18px;
       color: $blue-dark;
-      box-shadow: 0px 8px 37px 0px rgba(0, 0, 0, 0.12);
       text-transform: uppercase;
-      cursor: pointer;
+    }
+    &:hover::before {
+      background-image: none;
+      animation: none;
+    }
+    &:hover::after {
+      border: 1px solid $orange;
+      background-color: $orange;
+      color: transparent;
+      background-image: linear-gradient(
+        to right,
+        red,
+        orange,
+        blue,
+        #d8d800,
+        green,
+        indigo,
+        violet
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: hoverText 8s linear infinite;
+      background-size: 1000%;
+    }
+    @include respond-monitor($tablet) {
+      width: auto;
+      height: auto;
+      padding: 0;
+      margin-top: 32px;
+      border: none;
+      font-size: 14px;
+      box-shadow: none;
+      text-decoration: underline;
       &:hover {
-        border-color: #f9995d;
-        background-color: #f9995d;
-        color: map-get($white, 1);
-      }
-      @include respond-monitor($tablet) {
-        width: auto;
-        height: auto;
-        padding: 0;
-        margin-top: 32px;
+        color: $orange;
         border: none;
-        font-size: 14px;
-        box-shadow: none;
-        text-decoration: underline;
-        &:hover {
-          color: #f9995d;
-          border: none;
-          background-color: map-get($white, 1);
-        }
+        background-color: map-get($white, 1);
       }
     }
   }
-  .work {
-    padding: 100px 0;
-    background-color: map-get($white, 2);
-    .container {
-      @include respond-monitor($tablet) {
-        padding: 0;
+}
+.work {
+  padding: 100px 0;
+  background-color: map-get($white, 2);
+  &.show_animate {
+    .swiper-backface-hidden .work_item {
+      transition: all 1s;
+      opacity: 1;
+      transform: translateZ(0);
+      @for $i from 1 through $num-work {
+        &:nth-child(#{$i}) {
+          transition-delay: calc(($i - 1) * 100ms);
+        }
       }
     }
-    .swiper-pagination {
-      display: none;
+    .button-next,
+    .button-prev {
+      transition: all 1s;
+      transition-delay: 1s;
+      opacity: 1;
     }
+  }
+  .container {
     @include respond-monitor($tablet) {
-      padding: 44px 0 54px;
-      .swiper-pagination {
-        display: block;
-        & span {
-          margin: 0 4px;
-          background-color: $orange;
-        }
-        @for $i from 1 to 6 {
-          $size: max(12px - ($i * 2px), 6px);
-          & span:nth-child(#{$i}) {
-            width: $size;
-            height: $size;
-            line-height: $size;
+      padding: 0;
+    }
+  }
+  .swiper-pagination {
+    display: none;
+  }
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev,
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
+    transform: scale(0.8);
+  }
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev,
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
+    transform: scale(0.6);
+  }
+  .swiper-backface-hidden .swiper-slide {
+    transform: translateX(-100%);
+  }
+  @include respond-monitor($tablet) {
+    padding: 44px 0 54px;
+    .swiper-pagination {
+      display: block;
+      & span {
+        margin: 0 4px;
+        background-color: $orange;
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+  @include respond-monitor($mobile) {
+    padding: 44px 0 56px;
+  }
+  &_list {
+    margin-top: 44px;
+    @include respond-monitor($tablet) {
+      margin: 32px 0;
+    }
+  }
+  .swiper {
+    margin: -30px 0;
+    padding: 30px 0;
+    @include respond-monitor($tablet) {
+      padding: 30px 32px;
+    }
+    @include respond-monitor($mobile) {
+      padding: 32px 24px;
+    }
+  }
+
+  &_item {
+    position: relative;
+    width: 280px;
+    height: 475px;
+    border-radius: 24px;
+    box-shadow: 0px 0px 37px 0px rgba(17, 24, 39, 0.05);
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;
+    @include respond-monitor($mobile) {
+      width: 260px;
+      height: 425px;
+    }
+    &_img {
+      width: 100%;
+      height: calc(100% - 200px);
+      object-fit: cover;
+      border-radius: 24px 24px 150px 150px;
+      transition: transform 0.2s;
+      &:hover {
+        border-radius: 24px 24px 150px 150px;
+        transform: scale(1.2);
+        opacity: 0.9;
+      }
+    }
+  }
+  &_content {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    right: 0;
+    height: 130px;
+    padding: 18px;
+    border-radius: 0 0 24px 24px;
+    background-color: map-get($white, 1);
+    font-size: 0;
+    &_title {
+      font-size: 18px;
+      font-weight: 700;
+      color: $blue-dark;
+      line-height: 124.5%;
+      @include respond-monitor($mobile) {
+        font-size: 14px;
+      }
+    }
+    &_name {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 18px;
+      color: $blue-dark;
+      line-height: 124.5%;
+      @include respond-monitor($mobile) {
+        margin-top: 8px;
+        font-size: 13px;
+      }
+    }
+    &_tag {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: map-get($dark, 2);
+      line-height: 124.5%;
+      @include respond-monitor($mobile) {
+        font-size: 13px;
+      }
+    }
+  }
+  &_swiper {
+    position: relative;
+  }
+}
+.service {
+  padding: 100px 0;
+  font-size: 0;
+  overflow: hidden;
+  &.show_animate {
+    .service_item {
+      @each $key, $color in $colors-service {
+        &:nth-of-type(#{$key}) {
+          .service_number {
+            background-color: $color;
+          }
+          .service_number,
+          .service_text {
+            transition-delay: 0.5s * ($key - 1);
           }
         }
       }
     }
-    @include respond-monitor($mobile) {
-      padding: 44px 0 56px;
+    .service_text {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: 0.5s ease-in-out;
     }
-    &_list {
-      margin-top: 44px;
-      @include respond-monitor($tablet) {
-        margin: 32px 0;
-      }
-    }
-    .swiper {
-      margin: -30px 0;
-      padding: 30px 0;
-      @include respond-monitor($tablet) {
-        padding: 30px 32px;
-      }
-      @include respond-monitor($mobile) {
-        padding: 32px 24px;
-      }
-    }
-
-    &_item {
-      position: relative;
-      width: 280px;
-      height: 475px;
-      border-radius: 24px;
-      box-shadow: 0px 0px 37px 0px rgba(17, 24, 39, 0.05);
-      cursor: pointer;
-      overflow: hidden;
-      @include respond-monitor($mobile) {
-        width: 260px;
-        height: 425px;
-      }
-      &_img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 24px 24px 26px 26px;
-      }
-    }
-    &_content {
-      position: absolute;
-      left: 0;
-      bottom: 0px;
-      right: 0;
-      height: 130px;
-      padding: 18px;
-      border-radius: 0 0 24px 24px;
-      background-color: map-get($white, 1);
-      font-size: 0;
-      &_title {
-        font-size: 18px;
-        font-weight: 700;
-        color: $blue-dark;
-        line-height: 124.5%;
-        @include respond-monitor($mobile) {
-          font-size: 14px;
-        }
-      }
-      &_name {
-        display: inline-block;
-        margin-top: 4px;
-        font-size: 18px;
-        color: $blue-dark;
-        line-height: 124.5%;
-        @include respond-monitor($mobile) {
-          margin-top: 8px;
-          font-size: 13px;
-        }
-      }
-      &_tag {
-        display: inline-block;
-        margin-top: 16px;
-        font-size: 13px;
-        font-weight: 500;
-        color: map-get($dark, 2);
-        line-height: 124.5%;
-        @include respond-monitor($mobile) {
-          font-size: 13px;
-        }
-      }
-    }
-    &_swiper {
-      position: relative;
+    .service_number {
+      opacity: 1;
+      transform: skew(0deg, 0deg);
+      transition: 0.5s ease-in-out;
     }
   }
-  .service {
-    padding: 100px 0;
+  @include respond-monitor($tablet) {
+    padding: 44px 0;
+  }
+  &_content {
+    display: inline-block;
+    width: 624px;
+    vertical-align: middle;
+    @include respond-monitor($tablet) {
+      width: 100%;
+      .main-title {
+        text-align: center;
+      }
+    }
+  }
+  &_item {
+    margin-top: 44px;
+    @include respond-monitor($tablet) {
+      padding-bottom: 4px;
+      margin-top: 32px;
+    }
+    @include respond-monitor($mobile) {
+      padding-bottom: 9px;
+      &:nth-child(n + 2) {
+        margin-top: 20px;
+      }
+    }
+  }
+  &_number {
+    display: inline-block;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 10px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: map-get($white, 1);
+    text-align: center;
+    vertical-align: top;
+    line-height: 34px;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: skew(50deg, 50deg);
+    @include respond-monitor($mobile) {
+      min-width: 28px;
+      height: 28px;
+      font-size: 14px;
+      line-height: 28px;
+    }
+  }
+  &_text {
+    display: inline-block;
+    max-width: 574px;
+    margin-left: 16px;
+    transform: translateY(100%);
+    opacity: 0;
+    @include respond-monitor($tablet) {
+      max-width: calc(100% - 50px);
+    }
+  }
+  &_title {
+    color: $blue-dark;
+    font-size: 18px;
+    font-weight: 500;
+    @include respond-monitor($tablet) {
+      font-size: 16px;
+    }
+    @include respond-monitor($mobile) {
+      font-size: 15px;
+    }
+  }
+  &_desc {
+    display: -webkit-box;
+    overflow: hidden;
+    height: 72px;
+    margin-top: 8px;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    @include respond-monitor($tablet) {
+      height: 67px;
+      font-size: 14px;
+    }
+    @include respond-monitor($mobile) {
+      height: 63px;
+      font-size: 13px;
+    }
+  }
+  &_img {
+    display: inline-block;
+    width: 438px;
+    height: 358px;
+    margin-left: 120px;
+    vertical-align: middle;
+    @include respond-monitor($tablet) {
+      display: none;
+    }
+  }
+}
+.contact {
+  padding: 44px 0;
+  border-radius: 210px 0px 0px;
+  background-color: rgba(map-get($white, 3), 0.2);
+  &.show_animate {
+    .contact_branch {
+      transform: translate(0, 0);
+      opacity: 1;
+      transition: 1s ease-in-out;
+    }
+  }
+  @include respond-monitor($tablet) {
+    border-radius: 0;
+  }
+  &_desc {
+    margin-top: 12px;
+    font-size: 18px;
+    color: $blue-dark;
+    text-align: center;
+    @include respond-monitor($tablet) {
+      font-size: 16px;
+    }
+    @include respond-monitor($mobile) {
+      padding-bottom: 18px;
+      font-size: 13px;
+    }
+  }
+  &_address {
+    overflow: hidden;
+    padding: 0 52px 32px;
+    margin-top: 44px;
     font-size: 0;
     @include respond-monitor($tablet) {
-      padding: 44px 0;
-    }
-    &_content {
-      display: inline-block;
-      width: 624px;
-      vertical-align: middle;
-      @include respond-monitor($tablet) {
-        width: 100%;
-        .main-title {
-          text-align: center;
-        }
-      }
-    }
-    &_item {
-      margin-top: 44px;
-      &:nth-of-type(2) {
-        .service_number {
-          background-color: #f15a2b;
-        }
-      }
-      &:nth-of-type(3) {
-        .service_number {
-          background-color: #006380;
-        }
-      }
-      &:nth-of-type(4) {
-        .service_number {
-          background-color: #f0bb1f;
-        }
-      }
-      @include respond-monitor($tablet) {
-        padding-bottom: 4px;
-        margin-top: 32px;
-      }
-      @include respond-monitor($mobile) {
-        padding-bottom: 9px;
-        &:nth-child(n + 2) {
-          margin-top: 20px;
-        }
-      }
-    }
-    &_number {
-      display: inline-block;
-      min-width: 34px;
-      height: 34px;
-      padding: 0 10px;
-      border-radius: 8px;
-      background-color: $orange;
-      font-size: 20px;
-      font-weight: 600;
-      color: map-get($white, 1);
       text-align: center;
-      vertical-align: top;
-      line-height: 34px;
-      box-sizing: border-box;
-      @include respond-monitor($mobile) {
-        min-width: 28px;
-        height: 28px;
-        font-size: 14px;
-        line-height: 28px;
+      padding-bottom: 0;
+    }
+    @include respond-monitor($mobile) {
+      padding: 0;
+      margin-top: 32px;
+    }
+  }
+  &_branch {
+    display: inline-block;
+    width: 488px;
+    padding: 10px;
+    &:nth-child(1) {
+      transform: translate(136px, -44px);
+      opacity: 0;
+    }
+    &:nth-child(2) {
+      transform: translate(-136px, -44px);
+      opacity: 0;
+    }
+    @include respond-monitor($tablet) {
+      text-align: start;
+    }
+    @include respond-monitor($mobile) {
+      width: 100%;
+      padding: 0;
+    }
+    &:nth-child(2n + 2) {
+      margin-left: 136px;
+      @include respond-monitor($tablet) {
+        margin-left: 0;
       }
     }
-    &_text {
-      display: inline-block;
-      max-width: 574px;
-      margin-left: 16px;
+    &:nth-child(n + 2) {
       @include respond-monitor($tablet) {
-        max-width: calc(100% - 50px);
+        margin-top: 24px;
       }
     }
     &_title {
-      color: $blue-dark;
       font-size: 18px;
       font-weight: 500;
-      @include respond-monitor($tablet) {
-        font-size: 16px;
-      }
+      color: $blue-dark;
       @include respond-monitor($mobile) {
-        font-size: 15px;
-      }
-    }
-    &_desc {
-      display: -webkit-box;
-      overflow: hidden;
-      height: 72px;
-      margin-top: 8px;
-      font-size: 16px;
-      text-overflow: ellipsis;
-      line-height: 1.5;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      @include respond-monitor($tablet) {
-        height: 67px;
         font-size: 14px;
       }
-      @include respond-monitor($mobile) {
-        height: 63px;
-        font-size: 13px;
-      }
     }
-    &_img {
+    &_info {
       display: inline-block;
-      width: 438px;
-      height: 358px;
-      margin-left: 120px;
-      vertical-align: middle;
-      @include respond-monitor($tablet) {
-        display: none;
-      }
-    }
-  }
-  .contact {
-    padding: 44px 0;
-    border-radius: 210px 0px 0px;
-    background-color: rgba(map-get($white, 3), 0.2);
-    @include respond-monitor($tablet) {
-      border-radius: 0;
-    }
-    &_desc {
       margin-top: 12px;
-      font-size: 18px;
-      color: $blue-dark;
-      text-align: center;
+      font-size: 16px;
+      color: map-get($dark, 2);
+      line-height: 24px;
       @include respond-monitor($tablet) {
-        font-size: 16px;
-      }
-      @include respond-monitor($mobile) {
-        padding-bottom: 18px;
+        margin-top: 8px;
         font-size: 13px;
+        line-height: normal;
       }
     }
-    &_address {
-      padding: 0 52px 32px;
-      margin-top: 44px;
-      font-size: 0;
-      @include respond-monitor($tablet) {
-        text-align: center;
-        padding-bottom: 0;
-      }
-      @include respond-monitor($mobile) {
-        padding: 0;
-        margin-top: 32px;
-      }
-    }
-    &_branch {
-      display: inline-block;
-      width: 488px;
-      padding: 10px;
-      @include respond-monitor($tablet) {
-        text-align: start;
-      }
-      @include respond-monitor($mobile) {
-        width: 100%;
-        padding: 0;
-      }
-      &:nth-child(2n + 2) {
-        margin-left: 136px;
-        @include respond-monitor($tablet) {
-          margin-left: 0;
-        }
-      }
-      &:nth-child(n + 2) {
-        @include respond-monitor($tablet) {
-          margin-top: 24px;
-        }
-      }
-      &_title {
-        font-size: 18px;
-        font-weight: 500;
-        color: $blue-dark;
-        @include respond-monitor($mobile) {
-          font-size: 14px;
-        }
-      }
-      &_info {
-        display: inline-block;
-        margin-top: 12px;
-        font-size: 16px;
-        color: map-get($dark, 2);
-        line-height: 24px;
-        @include respond-monitor($tablet) {
-          margin-top: 8px;
-          font-size: 13px;
-          line-height: normal;
-        }
-      }
-      &_link {
-        color: map-get($dark, 2);
-      }
+    &_link {
+      color: map-get($dark, 2);
     }
   }
 }
